@@ -1,0 +1,123 @@
+/* ── CSS Variables ── */
+:root {
+  --bg:      #07111f;
+  --panel:   #0b1a28;
+  --border:  #12304a;
+  --border-subtle: #0e2238;
+
+  --heat1:   #a83a1a;
+  --heat2:   #c45a1a;
+  --heat3:   #a06820;
+  --heat4:   #8a7a10;
+  --cool1:   #1e6a90;
+  --cool2:   #2e7da0;
+  --accent:  #1d5a78;
+
+  --text:    #9db8cc;
+  --text-bright: #c8dde9;
+  --dim:     #3d6070;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* ── Remove scanline + noise (too decorative) ── */
+
+/* ── Typography ── */
+h1, h2, h3 { font-family: 'Orbitron', monospace; color: var(--text-bright); }
+code, .mono { font-family: 'Share Tech Mono', monospace; }
+
+/* ── Panels ── */
+.panel {
+  background: var(--panel);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  transition: border-color 0.2s ease;
+}
+.panel:hover { border-color: var(--cool2); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cool1); }
+
+/* ── Leaflet dark fix ── */
+.leaflet-container { background: #07111f !important; }
+.leaflet-tile-pane { filter: brightness(0.85) saturate(1.0); }
+
+/* ── Utility ── */
+.orbitron  { font-family: 'Orbitron', monospace; }
+.mono      { font-family: 'Share Tech Mono', monospace; }
+.rajdhani  { font-family: 'Rajdhani', sans-serif; }
+
+.text-heat1  { color: var(--heat1); }
+.text-heat2  { color: var(--heat2); }
+.text-heat3  { color: var(--heat3); }
+.text-accent { color: var(--cool2); }
+.text-cool1  { color: var(--cool1); }
+.text-cool2  { color: var(--cool2); }
+.text-dim    { color: var(--dim); }
+.text-bright { color: var(--text-bright); }
+
+/* glows removed — use font-weight for emphasis instead */
+
+/* ── Subtle grid background (optional, very low opacity) ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(29,93,120,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29,93,120,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Buttons ── */
+.btn-heat {
+  background: var(--heat2);
+  color: #f5d0bc;
+  border: none;
+  font-family: 'Orbitron', monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 10px 28px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-heat:hover { background: var(--heat1); }
+
+.btn-accent {
+  background: transparent;
+  color: var(--dim);
+  border: 0.5px solid var(--border);
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 7px 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-accent:hover {
+  border-color: var(--cool2);
+  color: var(--cool2);
+}
+
+/* ── Animations (toned down) ── */
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(2.0); opacity: 0; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}

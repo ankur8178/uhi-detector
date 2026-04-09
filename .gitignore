@@ -1,0 +1,20 @@
+# Python
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.env
+*.egg-info/
+
+# GEE credentials (NEVER commit these)
+~/.config/earthengine/
+backend/credentials.json
+backend/*.json
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# OS
+.DS_Store
+Thumbs.db
